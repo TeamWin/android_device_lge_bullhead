@@ -13,6 +13,10 @@ $(call inherit-product, vendor/omni/config/common.mk)
 # Bootanimation
 TARGET_BOOTANIMATION_SIZE := 960x640
 
+# TWRP
+PRODUCT_COPY_FILES += \
+    device/lge/bullhead/twrp.fstab:recovery/root/etc/twrp.fstab
+
 # Override product naming for Omni
 PRODUCT_NAME := omni_bullhead
 PRODUCT_BRAND := google
