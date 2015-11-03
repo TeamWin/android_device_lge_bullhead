@@ -1,3 +1,6 @@
+# Inherit omni-specific board config
+include device/lge/bullhead/BoardConfigOmni.mk
+
 # Inherit base AOSP device configuration
 $(call inherit-product, device/lge/bullhead/aosp_bullhead.mk)
 
