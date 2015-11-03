@@ -1,0 +1,8 @@
+[
+  {
+    "remote": "omnirom",
+    "repository": "android_kernel_lge_bullhead",
+    "target_path": "kernel/lge/bullhead",
+    "revision": "android-6.0"
+  }
+]
