@@ -11,7 +11,7 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Bootanimation
-TARGET_BOOTANIMATION_SIZE := 1080x720
+TARGET_BOOTANIMATION_SIZE := 960x640
 
 # Override product naming for Omni
 PRODUCT_NAME := omni_bullhead
