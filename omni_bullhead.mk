@@ -28,7 +28,7 @@ PRODUCT_COPY_FILES += \
 # Override product naming for Omni
 PRODUCT_NAME := omni_bullhead
 PRODUCT_BRAND := google
-PRODUCT_MODEL := Nexus 5x
+PRODUCT_MODEL := Nexus 5X
 PRODUCT_MANUFACTURER := LGE
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
