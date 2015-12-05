@@ -17,10 +17,6 @@ TARGET_BOOTANIMATION_SIZE := 960x640
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
 
-# Do not dexopt DMService and DMConfigUpdate
-$(call add-product-dex-preopt-module-config,DMService,disable)
-$(call add-product-dex-preopt-module-config,DMConfigUpdate,disable)
-
 # SELinux
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
