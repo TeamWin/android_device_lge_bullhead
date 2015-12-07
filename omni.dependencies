@@ -9,6 +9,6 @@
     "remote": "aosp",
     "repository": "platform/hardware/qcom/camera",
     "target_path": "hardware/qcom/camera",
-    "revision": "refs/tags/android-6.0.0_r26"
+    "revision": "refs/tags/android-6.0.1_r3"
   }
 ]
