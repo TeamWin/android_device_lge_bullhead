@@ -17,6 +17,10 @@ TARGET_BOOTANIMATION_SIZE := 1080x608
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
 
+# Electronic Image Stabilization
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.eis.enable=1
+
 # SELinux
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
