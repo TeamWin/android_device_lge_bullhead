@@ -16,6 +16,7 @@
         <item>airplane</item>
         <item>users</item>
         <item>silent</item>
+        <item>dnd</item>
     </string-array>
 
     <!-- Hide Project Fi app unless it is being used -->
