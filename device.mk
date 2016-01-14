@@ -174,7 +174,7 @@ PRODUCT_COPY_FILES += \
 
 # NFC packages
 PRODUCT_PACKAGES += \
-    nfc_nci.msm8992 \
+    nfc_nci.bullhead \
     NfcNci \
     Tag
 
