@@ -237,20 +237,26 @@ for PRIVAPK in `ls ../../../$OUTDIR/proprietary/priv-app/*/*apk`; do
   fi
     privapkname=`basename $PRIVAPK`
     privmodulename=`echo $privapkname|sed -e 's/\.apk$//gi'`
-  if [[ $apkmodulename = GCS || $apkmodulename = HotwordEnrollment ]]; then
+  if [[ $privmodulename = GCS || $privmodulename = HotwordEnrollment ]]; then
     signature="PRESIGNED"
   else
     signature="platform"
+  fi
+  if [[ $privmodulename = DMConfigUpdate || $privmodulename = DMService ]]; then
+    dexpreopt="FALSE"
+  else
+    dexpreopt="TRUE"
   fi
     (cat << EOF) >> ../../../$OUTDIR/proprietary/priv-app/Android.mk
 include \$(CLEAR_VARS)
 LOCAL_MODULE := $privmodulename
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := $privmodulename/$privapkname
-LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_CERTIFICATE := $signature
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_DEX_PREOPT := $dexpreopt
 include \$(BUILD_PREBUILT)
 
 EOF
