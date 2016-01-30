@@ -45,7 +45,12 @@ for FILE in `egrep -v '(^#|^$)' proprietary-blobs.txt`; do
     if [ -n "$DEST" ]; then
         FILE=$DEST
     fi
-    echo "    $OUTDIR/proprietary/$FILE:system/$FILE$LINEEND" >> $MAKEFILE
+    if [ $(echo $FILE | grep system) ]; then
+        FILE2=${FILE#'system/'}
+    elif [ $(echo $FILE | grep vendor) ]; then
+        FILE2=${FILE#'vendor/'}
+    fi
+    echo "    $OUTDIR/proprietary/$FILE2:$FILE$LINEEND" >> $MAKEFILE
   fi
 done
 

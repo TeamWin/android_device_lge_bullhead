@@ -100,7 +100,9 @@ system/lib/hw/gps.msm8992.so
 system/lib/hw/local_time.default.so
 system/lib/hw/nfc_nci.bullhead.so
 system/lib/libdmengine.so
+system/lib/libdmengine.so:priv-app/DMService/lib/arm/libdmengine.so
 system/lib/libdmjavaplugin.so
+system/lib/libdmjavaplugin.so:priv-app/DMService/lib/arm/libdmjavaplugin.so
 system/lib/lib_fpc_tac_shared.so
 system/lib/libgps.utils.so
 system/lib/libloc_api_v02.so
@@ -124,6 +126,8 @@ system/priv-app/CNEService/CNEService.apk
 -vendor/app/datastatusnotification/datastatusnotification.apk
 -vendor/app/ims/ims.apk
 vendor/lib64/libimscamera_jni.so
+vendor/lib64/libimscamera_jni.so:app/ims/lib/arm64/libimscamera_jni.so
 vendor/lib64/libimsmedia_jni.so
+vendor/lib64/libimsmedia_jni.so:app/ims/lib/arm64/libimsmedia_jni.so
 vendor/lib/libimscamera_jni.so
 vendor/lib/libimsmedia_jni.so

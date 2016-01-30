@@ -26,14 +26,12 @@ function extract() {
     for FILE in `egrep -v '(^#|^$)' $1`; do
       OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
       FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
+      echo "Extracting $FILE..."
       DEST=${PARSING_ARRAY[1]}
-      if [ -z $DEST ]
-      then
+      if [ -z $DEST ]; then
         DEST=$FILE
       fi
-      DIR=`dirname $DEST`
-      SYSTEM='system/'
-      VENDOR='vendor/'
+      DIR=`dirname $FILE`
       if [ ! -d $BASE/$DIR ]; then
         if [ $(echo $DIR | grep system) ]; then
             DIR2=${DIR#'system/'}
@@ -43,31 +41,24 @@ function extract() {
             mkdir -p $BASE/$DIR2
         fi
       fi
-      # Try CM target first
-      if [ "$SRC" = "adb" ]; then
-        adb pull /system/$DEST $BASE/$DEST
-        # if file does not exist try OEM target
-        if [ "$?" != "0" ]; then
-            adb pull /system/$FILE $BASE/$DEST
-        fi
+      if [ -z $SRC/$DEST ]; then
+          if [ $(echo $DEST | grep system) ]; then
+              DEST=${DEST#'system/'}
+          elif [ $(echo $DEST | grep vendor) ]; then
+              DEST=${DEST#'vendor/'}
+          fi
+          cp $SRC/$DEST $BASE/$DEST
       else
-        if [ -z $SRC/$DEST ]; then
-            echo "Extracting $DEST"
-            if [ $(echo $DEST | grep system) ]; then
-                DEST2=${DEST#'system/'}
-            elif [ $(echo $DEST | grep vendor) ]; then
-                DEST2=${DEST#'vendor/'}
-            fi
-            cp $SRC/$DEST $BASE/$DEST2
-        else
-            echo "Extracting $FILE"
-            if [ $(echo $DEST | grep system) ]; then
-                DEST2=${DEST#'system/'}
-            elif [ $(echo $DEST | grep vendor) ]; then
-                DEST2=${DEST#'vendor/'}
-            fi
-            cp $SRC/$FILE $BASE/$DEST2
-        fi
+          DIR=`dirname $DEST`
+          if [ ! -d $BASE/$DIR ]; then
+              mkdir -p $2/$DIR
+          fi
+          if [ $(echo $DEST | grep system) ]; then
+              DEST=${DEST#'system/'}
+          elif [ $(echo $DEST | grep vendor) ]; then
+              DEST=${DEST#'vendor/'}
+          fi
+          cp $SRC/$FILE $BASE/$DEST
       fi
     done
 }
