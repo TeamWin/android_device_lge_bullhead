@@ -1,6 +1,9 @@
 # Inherit omni-specific board config
 include device/lge/bullhead/BoardConfigOmni.mk
 
+# Exclude Live Wallpapers
+TARGET_EXCLUDE_LIVEWALLPAPERS := true
+
 # Inherit base AOSP device configuration
 $(call inherit-product, device/lge/bullhead/aosp_bullhead.mk)
 
