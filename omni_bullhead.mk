@@ -20,6 +20,10 @@ TARGET_BOOTANIMATION_SIZE := 1080x608
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
 
+# dex2oat
+PRODUCT_PROPERTY_SET += \
+    dalvik.vm.dex2oat-Xmx=1024m
+
 # Electronic Image Stabilization
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.eis.enable=1
