@@ -34,7 +34,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # TWRP
 PRODUCT_COPY_FILES += \
-    device/lge/bullhead/twrp.fstab:recovery/root/etc/twrp.fstab
+    device/lge/bullhead/twrp.fstab:recovery/root/etc/twrp.fstab \
+    device/lge/bullhead/kernel:kernel
 
 # Override product naming for Omni
 PRODUCT_NAME := omni_bullhead

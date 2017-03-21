@@ -21,6 +21,7 @@ on fs
     chmod 0664 /dev/ion
     chown system system /dev/ion
     start pulldecryptfiles
+    install_keyring
 
 on property:ro.crypto.state=encrypted
     start sbinqseecomd
